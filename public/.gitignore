@@ -1,0 +1,23 @@
+# Ignore build artifacts
+/build
+/hot
+/mix-manifest.json
+
+# Ignore storage symlink contents (not the symlink itself)
+/storage/*
+!/storage/.gitignore
+
+# Ignore uploaded/generated files
+/uploads
+/images/uploads
+/files
+
+# Ignore zip archives and backups
+*.zip
+*.tar.gz
+*.rar
+Archive.zip
+
+# OS files
+.DS_Store
+Thumbs.db

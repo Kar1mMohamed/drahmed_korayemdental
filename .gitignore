@@ -1,0 +1,171 @@
+# ============================================
+# Laravel Framework
+# ============================================
+/.phpunit.cache
+/vendor
+.env
+.env.backup
+.env.production
+.env.local
+.env.*.local
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+
+# ============================================
+# Storage Directories
+# ============================================
+/storage/*.key
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/testing/*
+storage/framework/views/*
+storage/logs/*
+!storage/logs/.gitignore
+
+# ============================================
+# Bootstrap Cache
+# ============================================
+bootstrap/cache/*.php
+!bootstrap/cache/.gitignore
+
+# ============================================
+# Node.js & NPM
+# ============================================
+/node_modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+.pnp
+.pnp.js
+package-lock.json
+
+# ============================================
+# Build Outputs
+# ============================================
+/public/build
+/public/hot
+/public/storage
+/public/mix-manifest.json
+/public/js/app.js
+/public/css/app.css
+/build
+/dist
+
+# ============================================
+# Composer
+# ============================================
+composer.phar
+composer.lock
+
+# ============================================
+# Database Files
+# ============================================
+*.sqlite
+*.sqlite3
+*.db
+database/*.sqlite
+database/*.db
+
+# ============================================
+# OS Generated Files
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+desktop.ini
+
+# ============================================
+# IDE and Editor Files
+# ============================================
+/.fleet
+/.idea
+/.vscode
+*.swp
+*.swo
+*.swn
+.project
+.settings/
+nbproject/
+.vscode/
+.vs/
+
+# ============================================
+# Deployment Files
+# ============================================
+/hostinger-deployment/
+deployment/
+*.tar.gz
+*.zip
+*.rar
+*.7z
+deploy-to-hostinger.sh
+optimize-for-production.sh
+index-hostinger*.php
+index-korayemdental*.php
+diagnose.php
+zip-project.sh
+
+# ============================================
+# Documentation (Deployment Specific)
+# ============================================
+HOSTINGER-DEPLOYMENT-GUIDE.md
+DEPLOYMENT-CHECKLIST.md
+TROUBLESHOOT-500-ERROR.md
+PHP-VERSION-FIX.md
+
+# ============================================
+# Backup & Temporary Files
+# ============================================
+*.bak
+*.backup
+*.old
+*.tmp
+*.temp
+*~
+
+# ============================================
+# Log Files
+# ============================================
+*.log
+logs/
+
+# ============================================
+# Runtime Data
+# ============================================
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ============================================
+# Test Coverage
+# ============================================
+coverage/
+.nyc_output/
+
+# ============================================
+# Dependency Directories
+# ============================================
+jspm_packages/
+
+# ============================================
+# Misc
+# ============================================
+.node_repl_history
+*.tgz
+
+# ============================================
+# Project Specific
+# ============================================
+# Ignore improperly named directories (Windows paths)
+C:*
