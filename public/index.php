@@ -7,14 +7,26 @@ define('LARAVEL_START', microtime(true));
 
 // Enable error logging for debugging
 $debugMode = getenv('APP_DEBUG') === 'true' || (isset($_GET['debug']) && $_GET['debug'] === 'true');
-$logFile = __DIR__.'/../storage/logs/bootstrap-debug.log';
+$logDir = __DIR__.'/../storage/logs';
+$logFile = $logDir . '/bootstrap-debug.log';
 
 function logDebug($message, $logFile, $debugMode) {
     $timestamp = date('Y-m-d H:i:s');
     $logMessage = "[{$timestamp}] {$message}\n";
 
-    // Always log to file if possible
-    @file_put_contents($logFile, $logMessage, FILE_APPEND);
+    // Try to create log directory if it doesn't exist
+    $logDir = dirname($logFile);
+    if (!is_dir($logDir)) {
+        @mkdir($logDir, 0775, true);
+    }
+
+    // Try to log to file
+    $logged = @file_put_contents($logFile, $logMessage, FILE_APPEND);
+
+    // If file logging failed and debug mode is on, show why
+    if (!$logged && $debugMode) {
+        echo "<pre style='color: orange;'>[{$timestamp}] WARNING: Could not write to log file: {$logFile}</pre>";
+    }
 
     // Display on screen if debug mode
     if ($debugMode) {
@@ -33,9 +45,12 @@ $paths = [
     'Autoloader' => __DIR__.'/../vendor/autoload.php',
     'Bootstrap' => __DIR__.'/../bootstrap/app.php',
     'Storage directory' => __DIR__.'/../storage',
+    'Logs directory' => __DIR__.'/../storage/logs',
     'Framework directory' => __DIR__.'/../storage/framework',
     'Views directory' => __DIR__.'/../storage/framework/views',
     'Cache directory' => __DIR__.'/../storage/framework/cache',
+    'Cache/data directory' => __DIR__.'/../storage/framework/cache/data',
+    'Sessions directory' => __DIR__.'/../storage/framework/sessions',
 ];
 
 foreach ($paths as $name => $path) {
