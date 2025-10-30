@@ -1,5 +1,35 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
-	#RewriteRule ^(.*)$ public/ [L]
+
+	# Prevent access to sensitive files and directories
+	RewriteRule ^\.env - [F,L]
+	RewriteRule ^composer\.(json|lock) - [F,L]
+	RewriteRule ^package(-lock)?\.json - [F,L]
+	RewriteRule ^artisan - [F,L]
+
+	# Prevent directory listing
+	Options -Indexes
+
+	# Handle requests to the public folder
+	# If the request is already for the public folder, skip rewriting
+	RewriteCond %{REQUEST_URI} !^/public/
+
+	# Redirect all requests to the public folder
+	# This ensures Laravel's public/index.php handles the request
 	RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
+
+# Disable directory browsing
+Options -Indexes
+
+# Prevent viewing of .htaccess file
+<Files .htaccess>
+	Order allow,deny
+	Deny from all
+</Files>
+
+# Protect sensitive files
+<FilesMatch "^\.env|composer\.(json|lock)|package(-lock)?\.json|artisan">
+	Order allow,deny
+	Deny from all
+</FilesMatch>
