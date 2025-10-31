@@ -1,8 +1,9 @@
 <?php
 
-echo "TEST TEST TEST TEST";
-
 use Illuminate\Http\Request;
+
+
+echo "TEST TEST TEST TEST 1";
 
 define('LARAVEL_START', microtime(true));
 
