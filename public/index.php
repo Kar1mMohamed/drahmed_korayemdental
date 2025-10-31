@@ -3,9 +3,6 @@
 use Illuminate\Http\Request;
 
 
-echo "TEST TEST TEST TEST 2";
-
-
 define('LARAVEL_START', microtime(true));
 
 // Determine if the application is in maintenance mode...
