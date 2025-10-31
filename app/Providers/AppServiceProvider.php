@@ -19,9 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-
-        echo "RQWE";
-        
         // Share transformations data with welcome view
         view()->composer('welcome', function ($view) {
             $view->with('transformations', config('transformations.items'));
